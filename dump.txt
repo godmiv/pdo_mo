@@ -1,0 +1,13 @@
+Создание дампа базы:
+
+mysqldump -h sapr02 -uroot -p1 pdo_mo > z:/usr/www/_pdo_mo/pdo_mo.sql
+
+mysqldump -uroot -p1 pdo_mo > d:/usr/www/pdo_mo/_pdo_mo/pdo_mo.sql
+
+
+
+Восстановление базы из дампа:
+
+mysql -h sapr02 -uroot -p1 pdo_mo < z:/usr/www/_pdo_mo/pdo_mo.sql
+
+mysql -uroot -p1 pdo_mo < d:/usr/www/pdo_mo/_pdo_mo/pdo_mo.sql

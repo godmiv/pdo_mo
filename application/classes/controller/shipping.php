@@ -1,15 +1,10 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Shipping extends Controller_Template {
-
-	public $template = 'tpl/default';
-	public $columns;
+class Controller_Shipping extends Controller_Main {
 
 	public function before() {
 		parent::before();
-		$this->user = array ('user' => Session::instance()->get('user'));
-		$columns = Kohana::$config->load('columns');
-		$this->columns['shipping'] = $columns->get('shipping');
+		$this->columns['shipping'] = $this->colconfig->get('shipping');
 	}
 
 	public function action_index() {

@@ -1,15 +1,10 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Codificator extends Controller_Template {
-
-	public $template = 'tpl/default';
-	public $columns;
+class Controller_Codificator extends Controller_Main {
 
 	public function before() {
 		parent::before();
-		$this->user = array ('user' => Session::instance()->get('user'));
-		$columns = Kohana::$config->load('columns');
-		$this->columns['detal'] = $columns->get('detal');		
+		$this->columns['detal'] = $this->colconfig->get('detal');
 	}
 
 	public function action_index() {

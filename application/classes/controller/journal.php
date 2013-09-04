@@ -1,16 +1,11 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Journal extends Controller_Template {
-
-	public $template = 'tpl/default';
-	public $columns;
+class Controller_Journal extends Controller_Main {
 
 	public function before() {
 		parent::before();
-		$this->user = array ('user' => Session::instance()->get('user'));
-		$columns = Kohana::$config->load('columns');
-		$this->columns['journal'] = $columns->get('journal');
-		$this->columns['detal'] = $columns->get('detal');
+		$this->columns['journal'] = $this->colconfig->get('journal');
+		$this->columns['detal'] = $this->colconfig->get('detal');
 	}
 
 	public function action_index()

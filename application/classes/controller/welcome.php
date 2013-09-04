@@ -1,15 +1,10 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Welcome extends Controller_Template {
-
-	public $template = 'tpl/default';
-	public $columns;
+class Controller_Welcome extends Controller_Main {
 
 	public function before() {
 		parent::before();
-		$this->user = array ('user' => Session::instance()->get('user'));
-		$columns = Kohana::$config->load('columns');
-		$this->columns['welcome'] = $columns->get('welcome');
+		$this->columns['welcome'] = $this->colconfig->get('welcome');
 	}
 
 	public function action_tablewelcome() {

@@ -32,9 +32,7 @@ class Controller_Welcome extends Controller_Template {
 		}
 		$data['vidremonta_list'] = rtrim($str1, ";");
 		$data['columns']['welcome'] = $this->columns['welcome'];
-		foreach ($data['columns']['welcome'] as $key=>$val){
-			$data['colnames']['welcome'][] = $val[0];
-		}
+		$data['colnames']['welcome'] = implode('","',Arr::pluck($data['columns']['welcome'], '0'));
 		$this->template->menu = View::factory('menu',$this->user);
 		$this->template->content = View::factory('welcome',$data);
 	}

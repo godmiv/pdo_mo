@@ -79,17 +79,11 @@ class Controller_Admin extends Controller_Template {
 		$data['action_selected'] = Arr::get($_POST,'action','');
 
 		$data['columns']['users'] = $this->columns['users'];
-		foreach ($data['columns']['users'] as $key=>$val){
-			$data['colnames']['users'][] = $val[0];
-		}
 		$data['columns']['groups'] = $this->columns['groups'];
-		foreach ($data['columns']['groups'] as $key=>$val){
-			$data['colnames']['groups'][] = $val[0];
-		}
 		$data['columns']['permissions'] = $this->columns['permissions'];
-		foreach ($data['columns']['permissions'] as $key=>$val){
-			$data['colnames']['permissions'][] = $val[0];
-		}
+		$data['colnames']['users']= implode('","',Arr::pluck($data['columns']['users'], '0'));
+		$data['colnames']['groups']= implode('","',Arr::pluck($data['columns']['groups'], '0'));
+		$data['colnames']['permissions']= implode('","',Arr::pluck($data['columns']['permissions'], '0'));
 				
 		$this->template->menu = View::factory('menu',$this->user);
 		$this->template->content = View::factory('admin',$data);

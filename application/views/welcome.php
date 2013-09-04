@@ -4,9 +4,9 @@ jQuery("#journal").jqGrid({
     url:'<?php echo URL::base()?>welcome/tablewelcome',
     datatype: 'xml',
     mtype: 'POST',
-   	colNames:["<?php echo implode('","',$colnames['welcome']);?>"],
-   	colModel:[
-		<?php foreach($columns['welcome'] as $key=>$col){
+   	
+   	colNames:["<?=$colnames['welcome']?>"],
+	colModel:[<?php foreach($columns['welcome'] as $key=>$col){
 			echo "{name:'$key', ";
 			echo "index:'$key', ";
 			echo "width:'$col[1]', ";

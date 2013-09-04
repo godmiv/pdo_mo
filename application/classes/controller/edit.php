@@ -47,9 +47,8 @@ class Controller_Edit extends Controller_Template {
 		}
 		$data['vidremonta_list'] = rtrim($str1, ";");
 		$data['columns']['edit'] = $this->columns['edit'];
-		foreach ($data['columns']['edit'] as $key=>$val){
-			$data['colnames']['edit'][] = $val[0];
-		}
+		$data['colnames']['edit']= implode('","',Arr::pluck($data['columns']['edit'], '0'));
+
 		$this->template->menu = View::factory('menu',$this->user);
 		$this->template->content = View::factory('edit',$data);
 	}

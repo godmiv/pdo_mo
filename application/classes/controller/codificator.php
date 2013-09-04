@@ -25,9 +25,7 @@ class Controller_Codificator extends Controller_Template {
 		$data['nazvdet_selected'] = Arr::get($_POST,'nazvdet','');
 		
 		$data['columns']['detal'] = $this->columns['detal'];
-		foreach ($data['columns']['detal'] as $key=>$val){
-			$data['colnames']['detal'][] = $val[0];
-		}
+		$data['colnames']['detal'] = implode('","',Arr::pluck($data['columns']['detal'], '0'));
 		$this->template->menu = View::factory('menu',$this->user);
 		$this->template->content = View::factory('codificator',$data);
 	}

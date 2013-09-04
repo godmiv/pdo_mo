@@ -35,13 +35,10 @@ class Controller_Journal extends Controller_Template {
 		$data['vidremonta_selected'] = Arr::get($_POST,'vidremonta','');
 
 		$data['columns']['detal'] = $this->columns['detal'];
-		foreach ($data['columns']['detal'] as $key=>$val){
-			$data['colnames']['detal'][] = $val[0];
-		}
 		$data['columns']['journal'] = $this->columns['journal'];
-		foreach ($data['columns']['journal'] as $key=>$val){
-			$data['colnames']['journal'][] = $val[0];
-		}
+		$data['colnames']['detal']= implode('","',Arr::pluck($data['columns']['detal'], '0'));
+		$data['colnames']['journal'] = implode('","',Arr::pluck($data['columns']['journal'], '0'));
+
 		/* Перенесено в аякс функцию
 		if(isset($_POST['add'])) {
 			$post = Validation::factory($_POST);

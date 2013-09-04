@@ -4,7 +4,7 @@ jQuery("#detal").jqGrid({
     url:'<?php echo URL::base()?>codificator/detal',
     datatype: 'xml',
     mtype: 'POST',
-   	colNames:["<?php echo implode('","',$colnames['detal']);?>"],
+   	colNames:["<?=$colnames['detal']?>"],
    	colModel:[
 		<?php foreach($columns['detal'] as $key=>$col){
 			echo "{name:'$key',";

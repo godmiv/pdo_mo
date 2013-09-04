@@ -26,7 +26,7 @@ jQuery("#users").jqGrid({
 	editurl: "<?php echo URL::base()?>admin/edituser",
     datatype: 'xml',
     mtype: 'POST',
-   	colNames:["<?php echo implode('","',$colnames['users']);?>"],
+   	colNames:["<?=$colnames['users']?>"],
    	colModel:[
 		<?php foreach($columns['users'] as $key=>$col){
 			echo "{name:'$key', ";
@@ -68,7 +68,7 @@ jQuery("#groups").jqGrid({
 	editurl: "<?php echo URL::base()?>admin/editpermissiongroup",
     datatype: 'xml',
     mtype: 'POST',
-   	colNames:["<?php echo implode('","',$colnames['groups']);?>"],
+   	colNames:["<?=$colnames['groups']?>"],
    	colModel:[
 		<?php foreach($columns['groups'] as $key=>$col){
 			echo "{name:'$key', ";
@@ -110,7 +110,7 @@ jQuery("#permissions").jqGrid({
     url:'<?php echo URL::base()?>admin/tablepermissions',
     datatype: 'xml',
     mtype: 'POST',
-   	colNames:["<?php echo implode('","',$colnames['permissions']);?>"],
+   	colNames:["<?=$colnames['permissions']?>"],
    	colModel:[
 		<?php foreach($columns['permissions'] as $key=>$col):?>
 		{name:'<?=$key;?>',index:'<?=$key;?>',width:<?=$col[1];?>,editable:<?php if($key == 'allowed') echo 'true';else echo 'false';?>},

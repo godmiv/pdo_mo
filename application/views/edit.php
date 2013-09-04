@@ -13,7 +13,7 @@ jQuery("#journal").jqGrid({
     url:'<?php echo URL::base()?>edit/tableedit',
     datatype: 'xml',
     mtype: 'POST',
-   	colNames:["<?php echo implode('","',$colnames['edit']);?>"],
+   	colNames:["<?=$colnames['edit']?>"],
    	colModel:[
 		<?php foreach($columns['edit'] as $key=>$col){
 			echo "{name:'$key', ";

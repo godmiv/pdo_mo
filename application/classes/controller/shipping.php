@@ -16,9 +16,7 @@ class Controller_Shipping extends Controller_Template {
 		if(!perm::check()) $this->request->redirect('');
 		$data = array();
 		$data['columns']['shipping'] = $this->columns['shipping'];
-		foreach ($data['columns']['shipping'] as $key=>$val){
-			$data['colnames']['shipping'][] = $val[0];
-		}
+		$data['colnames']['shipping']= implode('","',Arr::pluck($data['columns']['shipping'], '0'));
 		$this->template->menu = View::factory('menu',$this->user);
 		$this->template->content = View::factory('shipping',$data);
 	}

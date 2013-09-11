@@ -41,7 +41,15 @@ jQuery("#journal").jqGrid('navGrid','#jpager',
 	{}, // del options
 	{multipleSearch:true, sopt:['eq','ne','lt','le','gt','ge','bw','bn','ew','en','cn','nc','in','ni','nu','nn'], width:600}, // search options
 	{} // view options
-	);
+	).jqGrid('navButtonAdd', '#jpager', {
+    caption: "",
+    buttonicon: "ui-icon-calculator",
+    title: "Выбрать столбцы",
+    onClickButton: function () {
+        $(this).jqGrid('columnChooser');
+		}
+	})
+
 });
 </script>
 <table id="journal"></table>
